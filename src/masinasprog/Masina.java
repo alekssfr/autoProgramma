@@ -23,8 +23,17 @@ public class Masina {
 	
 	int pagNauda=0;
 	int nauda=0;
+	
+	
+	
+	
 	int paatrinat(int rekords) throws IOException {
 		pasreizejaisAtrums+=10;
+		
+		Scanner lasa = new Scanner(new File("rekords.txt"));
+		nauda = Integer.parseInt(lasa.nextLine());
+		rekords = Integer.parseInt(lasa.nextLine());
+		lasa.close();
 		
 		if(pasreizejaisAtrums>100) {
 			if(rand.nextInt(5)+1==1) {
@@ -51,7 +60,6 @@ public class Masina {
 				        raksta.println(rekords);
 				        raksta.close();
 
-				        // Continue with your crash message here
 				    }
 				}
 				JOptionPane.showMessageDialog(null, marka+" avarēja! Jūs braucāt par ātru."
