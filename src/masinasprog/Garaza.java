@@ -1,10 +1,12 @@
 package masinasprog;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 public class Garaza {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		String izvele;
 		
@@ -31,6 +33,11 @@ public class Garaza {
 				break;
 			
 			case "Veikt mašīnas darbību":
+				if(auto == null) {
+					JOptionPane.showMessageDialog(null, "Nav izveidota mašīna!", "Izveido mašīnu",
+							JOptionPane.WARNING_MESSAGE);
+					break;
+				}
 				String[] masinuDarbibas = {"Paātrināt mašīnu", "Bremzēt mašīnu", "Noparkot mašīnu",
 						"Noteikt mašīnas ātrumu", "Pārkrāsot mašīnu", "Iziet"};
 				String darbibuIzvele;
@@ -51,8 +58,14 @@ public class Garaza {
 						auto.bremzet();
 						break;
 					}
+		
 					
 				}while(!darbibuIzvele.equals("Iziet"));
+				
+//			case "Atvērt veikalu":
+//				
+//				break;
+				
 				}
 			}while(!izvele.equals("Iziet"));
 		
